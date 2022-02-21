@@ -8,18 +8,19 @@
 _Replace anything surrounded by the `< >` symbols._
 
 ## SUMMARY:
- < Provide a short description of your program's functionality. No more than a couple sentences. >
+Uses the turtle module to draw a graph of sin, cos, and tan.
+(Axes are not labelled).
 
 ## GRACE DAYS
-Grace days used for this assignment: < # >
+Grace days used for this assignment: 0
 
-Grace days remaining: < # >/5
+Grace days remaining: 5/5
 
 ## KNOWN BUGS AND INCOMPLETE PARTS:
- < What parts of the project you were not able to complete >
+Some parts of the tan graph are cut off as it approaches infinity or negative infinity.
 
 ## REFERENCES:
- < List any outside resources used >
+Turtle documentation.
 
 ## MISCELLANEOUS COMMENTS:
- < Anything you would like the grader to know >
+N/A
