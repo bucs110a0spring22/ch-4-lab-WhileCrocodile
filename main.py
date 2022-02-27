@@ -7,78 +7,101 @@ import math
 # then you do not fully understand functions
 # and should review how they work or ask for help
 
-def drawSineCurve(turtle_object):
+def drawSineCurve(myturtle=None):
   '''
   Draws a sine curve.
   args:
+    myturtle[turtle.Turtle]: a turtle object created by the turtle module
   return:
   '''
   start_x_coord = -360
   start_y_coord = math.sin(math.radians(-360))
-  turtle_object.penup()
-  turtle_object.goto(start_x_coord, start_y_coord)
-  turtle_object.pendown()
+  myturtle.penup()
+  myturtle.goto(start_x_coord, start_y_coord)
+  myturtle.pendown()
   for i in range(-360, 361):
     x_coord = i
     y_coord = math.sin(math.radians(i))
-    turtle_object.goto(x_coord, y_coord)
+    myturtle.goto(x_coord, y_coord)
   print("Your sine curve has been drawn.")
 
-def drawCosineCurve(turtle_object):
+def drawCosineCurve(myturtle=None):
   '''
   Draws a cosine curve.
   args:
+    myturtle[turtle.Turtle]: a turtle object created by the turtle module
   return:
   '''
   start_x_coord = -360
   start_y_coord = math.cos(math.radians(-360))
-  turtle_object.penup()
-  turtle_object.goto(start_x_coord, start_y_coord)
-  turtle_object.pendown()
+  myturtle.penup()
+  myturtle.goto(start_x_coord, start_y_coord)
+  myturtle.pendown()
   for i in range(-360, 361):
     x_coord = i
     y_coord = math.cos(math.radians(i))
-    turtle_object.goto(x_coord, y_coord)
+    myturtle.goto(x_coord, y_coord)
   print("Your cosine curve has been drawn.")
 
-def drawTangentCurve(turtle_object):
+def drawTangentCurve(myturtle=None):
   '''
   Draws a tangent curve.
   args:
+    myturtle[turtle.Turtle]: a turtle object created by the turtle module
   return:
   '''
   start_x_coord = -360
   start_y_coord = math.tan(math.radians(-360))
-  turtle_object.penup()
-  turtle_object.goto(start_x_coord, start_y_coord)
-  turtle_object.pendown()
+  myturtle.penup()
+  myturtle.goto(start_x_coord, start_y_coord)
+  myturtle.pendown()
   for i in range(-360, 361):
     x_coord = i
     y_coord = math.tan(math.radians(i))
-    turtle_object.goto(x_coord, y_coord)
+    window_top = 2
+    window_bottom = -2
+    max_distance = 2
+    # Checks if the next position is within the
+    # bounds of the window; if not, it skips that position.
+    # This is to prevent the turtle from going to positions
+    # approaching infinity and breaking the graph.
+    if window_top > y_coord and window_bottom < y_coord:
+      # Checks if the distance between the turtle's current 
+      # position and next position is greater than 2 (the max distance).
+      # This is to prevent noncontinous parts of the tan graph from being
+      # connected (i.e. the areas where they point to infinity).
+      if myturtle.ycor() - y_coord > max_distance: 
+        myturtle.penup()
+        myturtle.goto(x_coord, y_coord)
+        myturtle.pendown()
+      else:
+        myturtle.goto(x_coord, y_coord) 
+      
   print("Your tangent curve has been drawn.")
  
-def setupWindow(screen_object):
+def setupWindow(mywindow=None):
   '''
   Sets the world coordinates of a window for drawing trigonometric functions.
   args:
+    mywindow[turtle._Screen]: a window created by the turtle module
   return:
   '''
-  screen_object.setworldcoordinates(-400, -2, 400, 2)
+  mywindow.setworldcoordinates(-400, -2, 400, 2)
 
-def setupAxis(turtle_object):
+def setupAxis(myturtle=None):
   '''
   Sets up an axis for drawing trigonometric functions.
   args:
+    myturtle[turtle.Turtle]: a turtle object created by the turtle module
   return:
   '''
-  turtle_object.penup()
-  turtle_object.goto(0, -2)
-  turtle_object.pendown()
-  turtle_object.goto(0,2)
-  turtle_object.goto(0,0)
-  turtle_object.goto(360, 0)
-  turtle_object.goto(-360, 0)
+  myturtle.penup()
+  myturtle.goto(0, -2)
+  myturtle.pendown()
+  myturtle.goto(0,2)
+  myturtle.goto(0,0)
+  myturtle.goto(360, 0)
+  myturtle.goto(-360, 0)
 
 ##########  Do Not Alter Any Code Past Here ########
 def main():
