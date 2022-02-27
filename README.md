@@ -29,4 +29,4 @@ You could write the tan function the same way as the sin and cos functions, and 
 
 I tried fixing this by making sure the turtle was within bounds of the window before it would draw the tan graph. I also made sure that no line would be drawn if the y distance between 2 points was greater than 2. This fixed the going to infinity problem, while only letting points that should be connected to be connected.
 
-I'm not sure if the original broken implementation of the drawing tan function would have been accepted, but the "fixed" version is a lot more complicated than I would have expected.
+I'm not sure if the original broken implementation of the drawing tan function would have been accepted, but the "fixed" version is a lot more complicated than I would have expected (for my beginner skill level anyways :sob:)
